@@ -1,0 +1,85 @@
+﻿@model MoviesMVC.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details about the Movie @Model.Title</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDMovie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDMovie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublishedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        @foreach (var uploadedFile in Model.UploadedFiles)
+        {
+            <dt>
+                @uploadedFile.Name
+            </dt>
+
+            <dd style="margin-top: 10px">
+                <img src="~/File?id=@uploadedFile.IDUploadedFile" alt="Picture" width="300" height="200" />
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMovie }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MoviesMVC.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDMovie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Director)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDMovie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Director)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDMovie }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDMovie }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDMovie })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="form-group">
+    <strong>
+        @Html.ActionLink("People", "Index", "Person")
+    </strong>
+    <strong>
+        @Html.ActionLink("Genres", "Index", "Genre")
+    </strong>
+</div>
